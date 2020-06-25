@@ -64,15 +64,21 @@ function validateNumber(){
 validateNumber $Number
 
 
-read -p "Enter password " password
+read -p "Enter password :" password
 
 function validatePassword(){
-        passpattern="^([a-zA-Z0-9@#!]){8,}$"
-            if [[ $1 =~ $passpattern ]]
+        passpattern1="^([a-zA-Z0-9@#!]){8,}$"
+        passpattern2="^([a-z0-9@#!]*)[A-Z]+([a-z0-9@#!]*)$"
+            if [[ $1 =~ $passpattern1 ]]
             then
-                echo "Success : Valid password"
-             else
-                echo "Invalid password"
-        fi
+                if [[ $1 =~ $passpattern2 ]]
+                then
+  	              echo "Success : Valid password"
+                else
+         	       echo "Atleast one special charecter is required"
+                fi
+           else
+               echo "Error : Atleast one digit is mandatory."
+            fi
 }
 validatePassword $password
