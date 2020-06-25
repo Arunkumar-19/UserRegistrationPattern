@@ -50,3 +50,15 @@ function validateEmail(){
 }
 validateEmail $email
 
+read -p "Mobile Number:" Number
+
+function validateNumber(){
+        numberpattern="^[0-9]{12}$ || ^[0-9]{2}[[]][0-9]{10}$"
+        if [[ $1 =~ $numberpattern ]]
+        then
+          echo "valid number"
+        else
+          echo "Invalid number"
+        fi
+}
+validateNumber $Number
