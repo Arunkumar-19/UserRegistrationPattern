@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo "Welcome to User Registration"
+echo "------Welcome to User Registration------"
 read -p "Enter the First Name:" name
 
 function firstName(){
@@ -35,3 +35,18 @@ fi
 }
 
 firstName $name
+
+shopt -s extglob
+read -p "email:" email
+
+function validateEmail(){
+        emailpattern="\b[A-Za-z0-9]+\@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b"
+        if [[ $1=~$emailpattern ]]
+        then
+          echo "valid email address"
+        else
+          echo "Invalid email address"
+        fi
+}
+validateEmail $email
+
