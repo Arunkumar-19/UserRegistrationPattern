@@ -62,3 +62,17 @@ function validateNumber(){
         fi
 }
 validateNumber $Number
+
+
+read -p "Enter password " password
+
+function validatePassword(){
+        passpattern="^([a-zA-Z0-9@#!]){8,}$"
+            if [[ $1 =~ $passpattern ]]
+            then
+                echo "Success : Valid password"
+             else
+                echo "Invalid password"
+        fi
+}
+validatePassword $password
